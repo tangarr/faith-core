@@ -14,9 +14,17 @@ public:
         GET_CONFG = 110,
         GET_HOSTS_LIST,
         GET_HOST,
+        GET_LAB_LIST,
+        REQUEST_IP,
         OK = 200,
-        FILE = 201,
         ERROR = 400,
+    };
+    enum DataType
+    {
+        NOTHING,
+        FILE,
+        STRING,
+        IP
     };
 };
 
