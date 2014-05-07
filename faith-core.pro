@@ -10,9 +10,12 @@ TARGET = faith-core
 TEMPLATE = lib
 CONFIG += staticlib
 
-SOURCES += faithcore.cpp
+SOURCES += faithcore.cpp \
+    faithmessage.cpp
 
-HEADERS += faithcore.h
+HEADERS += faithcore.h \
+    faithmessage.h \
+    faithobject.h
 unix {
     target.path = /usr/lib
     INSTALLS += target
