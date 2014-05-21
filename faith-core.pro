@@ -12,11 +12,19 @@ TEMPLATE = lib
 CONFIG += staticlib
 
 SOURCES += faithcore.cpp \
-    faithmessage.cpp
+    faithmessage.cpp \
+    faithdatabuilder.cpp \
+    fdstring.cpp \
+    fdstringlist.cpp \
+    fdproposedip.cpp
 
 HEADERS += faithcore.h \
     faithmessage.h \
-    faithobject.h
+    faithdata.h \
+    faithdatabuilder.h \
+    fdstring.h \
+    fdstringlist.h \
+    fdproposedip.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

@@ -1,6 +1,8 @@
 #ifndef FAITHCORE_H
 #define FAITHCORE_H
 
+#include <QtCore>
+#include <QString>
 
 class Faithcore
 {
@@ -8,24 +10,16 @@ class Faithcore
 public:
     Faithcore();
     enum MessageCode
-    {
-        AUTH = 100,
-        SAVE_CONFIG = 101,
-        GET_CONFG = 110,
-        GET_HOSTS_LIST,
-        GET_HOST,
+    {        
         GET_LAB_LIST,
-        REQUEST_IP,
-        OK = 200,
-        ERROR = 400,
+        LAB_LIST,
+        RESERVE_IP,
+        PROPOSED_IP,
+        OK,
+        ERROR,
     };
-    enum DataType
-    {
-        NOTHING,
-        FILE,
-        STRING,
-        IP
-    };
+    static quint32 ipFromString(const QString &ip);
+    static QString ipFromInt(const quint32 &ip);
 };
 
 #endif // FAITHCORE_H
