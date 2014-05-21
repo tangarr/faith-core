@@ -20,6 +20,7 @@ public:
     };
     static quint32 ipFromString(const QString &ip);
     static QString ipFromInt(const quint32 &ip);
+
 };
 
 #endif // FAITHCORE_H

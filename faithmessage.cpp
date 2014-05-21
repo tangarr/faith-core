@@ -2,6 +2,8 @@
 #include <QDataStream>
 #include <QFile>
 #include "faithdatabuilder.h"
+#include "fdstring.h"
+#include "fdstringlist.h"
 
 bool FaithMessage::send(QTcpSocket *socket) const
 {
@@ -54,4 +56,12 @@ bool FaithMessage::recive(QTcpSocket *socket)
 Faithcore::MessageCode FaithMessage::getMessageCode() const
 {
     return messageCode;
+}
+
+FaithMessage &FaithMessage::MsgGetLabList(QString labName)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::GET_LAB_LIST;
+    msg->data = new FdString(labName);
+    return *msg;
 }

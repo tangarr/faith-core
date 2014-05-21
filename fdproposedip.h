@@ -8,7 +8,7 @@ class FdProposedIp : public FaithData
     quint32 _ip;
     QString _hostname;
 public:
-    FdProposedIp(quint32 ip, QString hostname);
+    FdProposedIp(quint32 ip=0, QString hostname=QString());
     quint32 ip() const;
     QString hostname() const;
 

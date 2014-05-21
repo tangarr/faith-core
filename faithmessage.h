@@ -9,17 +9,17 @@
 
 class FaithMessage
 {
-private:
-    FaithMessage() {}
+private:    
     Faithcore::MessageCode messageCode;
     FaithData *data;
 
-
 public:
+    FaithMessage() {}
     bool send(QTcpSocket*) const;
     bool recive(QTcpSocket*);
     Faithcore::MessageCode getMessageCode() const;
     FaithData* getData() const;
+    static FaithMessage &MsgGetLabList(QString labName);
 };
 
 #endif // FAITHMESSAGE_H
