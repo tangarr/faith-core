@@ -4,6 +4,7 @@
 #include "faithdatabuilder.h"
 #include "fdstring.h"
 #include "fdstringlist.h"
+#include "fdproposedip.h"
 
 bool FaithMessage::send(QTcpSocket *socket) const
 {
@@ -50,7 +51,6 @@ bool FaithMessage::recive(QTcpSocket *socket)
         data=0;
         return true;
     }
-
 }
 
 Faithcore::MessageCode FaithMessage::getMessageCode() const
@@ -58,10 +58,50 @@ Faithcore::MessageCode FaithMessage::getMessageCode() const
     return messageCode;
 }
 
-FaithMessage &FaithMessage::MsgGetLabList(QString labName)
+FaithMessage &FaithMessage::MsgGetLabList()
 {
     FaithMessage* msg = new FaithMessage();
     msg->messageCode = Faithcore::GET_LAB_LIST;
-    msg->data = new FdString(labName);
+    msg->data = 0;
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgLabList(QStringList labList)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::LAB_LIST;
+    msg->data = new FdStringList(labList);
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgReserveIp(QString lab)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::RESERVE_IP;
+    msg->data = new FdString(lab);
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgProposedIp(quint32 ip, QString hostName)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::PROPOSED_IP;
+    msg->data = new FdProposedIp(ip, hostName);
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgOk()
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::OK;
+    msg->data = 0;
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgError(QString message)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::ERROR;
+    msg->data = new FdString(message);
     return *msg;
 }
