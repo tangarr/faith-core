@@ -11,17 +11,21 @@ bool FaithMessage::send(QTcpSocket *socket) const
 
     QDataStream stream(socket);
     stream.setVersion(QDataStream::Qt_5_2);
-    stream << static_cast<quint16>(messageCode);
+    quint16 code = static_cast<quint16>(messageCode);
+    stream << code;
+    int length = 0;
 
     if (data==0)
     {
-        stream << (int)0;
+        stream << length;
     }
     else
     {
         QByteArray raw = data->rawDada();
         QByteArray data = qCompress(raw, 9);
-        stream << data.size() << data;
+        length = data.size();
+        stream << length;
+        stream << data;
     }
     socket->flush();
     return true;
@@ -39,10 +43,12 @@ bool FaithMessage::recive(QTcpSocket *socket)
     {
         data = FaithDataBuilder::buildFaithData(messageCode);
         if (!data) return false;
-        char *buffor = new char[length];
-        stream.readRawData(buffor, length);
-        QByteArray compressed(buffor, length);
-        delete buffor;
+        //char *buffor = new char[length];
+        //stream.readRawData(buffor, length);
+        //QByteArray compressed(buffor, length);
+        QByteArray compressed;
+        stream >> compressed;
+        //delete buffor;
         QByteArray raw=qUncompress(compressed);
         return data->readRawData(raw);
     }
