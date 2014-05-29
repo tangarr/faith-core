@@ -64,6 +64,11 @@ Faithcore::MessageCode FaithMessage::getMessageCode() const
     return messageCode;
 }
 
+FaithData *FaithMessage::getData() const
+{
+    return data;
+}
+
 FaithMessage &FaithMessage::MsgGetLabList()
 {
     FaithMessage* msg = new FaithMessage();

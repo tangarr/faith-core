@@ -9,7 +9,7 @@ QT       += network
 
 TARGET = faith-core
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib c++11
 
 SOURCES += faithcore.cpp \
     faithmessage.cpp \

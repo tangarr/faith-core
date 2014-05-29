@@ -6,7 +6,6 @@
 #include <QTcpSocket>
 #include "faithdata.h"
 
-
 class FaithMessage
 {
 private:    

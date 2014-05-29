@@ -19,7 +19,7 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
         val = new FdStringList();
         break;
     case Faithcore::RESERVE_IP:
-        val = 0;
+        val = new FdString();
         break;
     case Faithcore::PROPOSED_IP:
         val = new FdProposedIp();

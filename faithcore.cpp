@@ -1,6 +1,8 @@
 #include "faithcore.h"
+#include <QtCore>
+#include <QString>
 
-Faithcore::Faithcore()
+Faithcore::Faithcore() : QObject(0)
 {
 }
 
@@ -23,4 +25,11 @@ QString Faithcore::ipFromInt(const quint32& ip)
     c = (quint8) (ip >> 8);
     d = (quint8) ip;
     return QString("%1.%2.%3.%4").arg(a).arg(b).arg(c).arg(d);
+}
+
+QString Faithcore::MessageCodeToString(Faithcore::MessageCode code)
+{
+    QMetaObject obj = Faithcore::staticMetaObject;
+    QMetaEnum en = obj.enumerator(0);
+    return QLatin1String(en.valueToKey((int)code));
 }

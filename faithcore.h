@@ -1,11 +1,14 @@
 #ifndef FAITHCORE_H
 #define FAITHCORE_H
 
-#include <QtCore>
 #include <QString>
+#include <QtCore>
+#include <QMetaEnum>
 
-class Faithcore
+class Faithcore : public QObject
 {
+    Q_OBJECT
+    Q_ENUMS(MessageCode)
 
 public:
     Faithcore();
@@ -20,6 +23,8 @@ public:
     };
     static quint32 ipFromString(const QString &ip);
     static QString ipFromInt(const quint32 &ip);
+    static QString MessageCodeToString(MessageCode code);
+
 
 };
 

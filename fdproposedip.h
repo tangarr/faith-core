@@ -2,6 +2,7 @@
 #define FDPROPOSEDIP_H
 
 #include "faithdata.h"
+#include <QString>
 
 class FdProposedIp : public FaithData
 {
