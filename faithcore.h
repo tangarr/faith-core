@@ -13,8 +13,9 @@ class Faithcore : public QObject
 public:
     Faithcore();
     enum MessageCode
-    {        
-        GET_LAB_LIST,
+    {
+        GET_LAB_LIST_OR_HOST_INFO,
+        HOST_INFO,
         LAB_LIST,
         RESERVE_IP,
         PROPOSED_IP,

@@ -72,7 +72,7 @@ FaithData *FaithMessage::getData() const
 FaithMessage &FaithMessage::MsgGetLabList()
 {
     FaithMessage* msg = new FaithMessage();
-    msg->messageCode = Faithcore::GET_LAB_LIST;
+    msg->messageCode = Faithcore::GET_LAB_LIST_OR_HOST_INFO;
     msg->data = 0;
     return *msg;
 }

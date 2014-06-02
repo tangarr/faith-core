@@ -12,7 +12,7 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
 {
     FaithData* val;
     switch (messageCode) {
-    case Faithcore::GET_LAB_LIST:
+    case Faithcore::GET_LAB_LIST_OR_HOST_INFO:
         val = 0;
         break;
     case Faithcore::LAB_LIST:
