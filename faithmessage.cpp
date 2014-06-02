@@ -69,11 +69,11 @@ FaithData *FaithMessage::getData() const
     return data;
 }
 
-FaithMessage &FaithMessage::MsgGetLabList()
+FaithMessage &FaithMessage::MsgGetLabListOrHostInfo(QString mac)
 {
     FaithMessage* msg = new FaithMessage();
     msg->messageCode = Faithcore::GET_LAB_LIST_OR_HOST_INFO;
-    msg->data = 0;
+    msg->data = new FdString(mac);
     return *msg;
 }
 

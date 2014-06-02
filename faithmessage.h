@@ -18,7 +18,7 @@ public:
     bool recive(QTcpSocket*);
     Faithcore::MessageCode getMessageCode() const;
     FaithData* getData() const;
-    static FaithMessage &MsgGetLabList();
+    static FaithMessage &MsgGetLabListOrHostInfo(QString mac);
     static FaithMessage &MsgLabList(QStringList labList);
     static FaithMessage &MsgReserveIp(QString lab);
     static FaithMessage &MsgProposedIp(quint32 ip, QString hostName);

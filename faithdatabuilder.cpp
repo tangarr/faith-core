@@ -14,7 +14,7 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
     FaithData* val;
     switch (messageCode) {
     case Faithcore::GET_LAB_LIST_OR_HOST_INFO:
-        val = 0;
+        val = new FdString();
         break;
     case Faithcore::LAB_LIST:
         val = new FdStringList();
