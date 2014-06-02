@@ -3,7 +3,7 @@
 
 #include "faithdata.h"
 
-class FdHostInfo : FaithData
+class FdHostInfo : public FaithData
 {
     QString _lab, _hostname;
     quint32 _ip;
