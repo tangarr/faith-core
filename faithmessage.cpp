@@ -5,6 +5,7 @@
 #include "fdstring.h"
 #include "fdstringlist.h"
 #include "fdproposedip.h"
+#include "fdhostinfo.h"
 
 bool FaithMessage::send(QTcpSocket *socket) const
 {
@@ -101,6 +102,14 @@ FaithMessage &FaithMessage::MsgProposedIp(quint32 ip, QString hostName)
     return *msg;
 }
 
+FaithMessage &FaithMessage::MsgHostInfo(QString lab, QString hostName, quint32 ip)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::HOST_INFO;
+    msg->data = new FdHostInfo(lab, hostName, ip);
+    return *msg;
+}
+
 FaithMessage &FaithMessage::MsgOk()
 {
     FaithMessage* msg = new FaithMessage();
@@ -115,4 +124,9 @@ FaithMessage &FaithMessage::MsgError(QString message)
     msg->messageCode = Faithcore::ERROR;
     msg->data = new FdString(message);
     return *msg;
+}
+
+FaithMessage &FaithMessage::MsgSendFile(QString filePatch)
+{
+
 }

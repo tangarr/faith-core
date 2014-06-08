@@ -22,8 +22,10 @@ public:
     static FaithMessage &MsgLabList(QStringList labList);
     static FaithMessage &MsgReserveIp(QString lab);
     static FaithMessage &MsgProposedIp(quint32 ip, QString hostName);
+    static FaithMessage &MsgHostInfo(QString lab, QString hostName, quint32 ip);
     static FaithMessage &MsgOk();
     static FaithMessage &MsgError(QString message);
+    static FaithMessage &MsgSendFile(QString filePatch);
 };
 
 #endif // FAITHMESSAGE_H

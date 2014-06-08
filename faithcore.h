@@ -19,8 +19,10 @@ public:
         LAB_LIST,
         RESERVE_IP,
         PROPOSED_IP,
+        ACCEPT_IP,
         OK,
         ERROR,
+        SEND_FILE
     };
     static quint32 ipFromString(const QString &ip);
     static QString ipFromInt(const quint32 &ip);

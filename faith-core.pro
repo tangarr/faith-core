@@ -17,7 +17,8 @@ SOURCES += faithcore.cpp \
     fdstring.cpp \
     fdstringlist.cpp \
     fdproposedip.cpp \
-    fdhostinfo.cpp
+    fdhostinfo.cpp \
+    fdfile.cpp
 
 HEADERS += faithcore.h \
     faithmessage.h \
@@ -26,7 +27,8 @@ HEADERS += faithcore.h \
     fdstring.h \
     fdstringlist.h \
     fdproposedip.h \
-    fdhostinfo.h
+    fdhostinfo.h \
+    fdfile.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

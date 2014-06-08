@@ -4,6 +4,7 @@
 #include "fdstringlist.h"
 #include "fdproposedip.h"
 #include "fdhostinfo.h"
+#include "fdfile.h"
 
 FaithDataBuilder::FaithDataBuilder()
 {
@@ -33,6 +34,12 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
         break;
     case Faithcore::HOST_INFO:
         val = new FdHostInfo();
+        break;
+    case Faithcore::ACCEPT_IP:
+        val = new FdHostInfo();
+        break;
+    case Faithcore::SEND_FILE:
+        val = new FdFile();
         break;
     default:    
         val = 0;
