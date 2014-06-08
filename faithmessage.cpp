@@ -131,16 +131,10 @@ FaithMessage &FaithMessage::MsgSendFile(QString filePath)
 {
     FaithMessage* msg = new FaithMessage();
     FdFile *file = new FdFile();
-    if (!file->readFile(filePath))
-    {
-        delete file;
-        delete msg;
-        return FaithMessage::MsgError("Can't read file: "+filePath);
-    }
-    else
-    {
+    if (file->readFile(filePath))
+    { 
         msg->messageCode = Faithcore::SEND_FILE;
-        msg->data = file;
-        return *msg;
+        msg->data = file;        
     }
+    return *msg;
 }
