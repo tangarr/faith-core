@@ -25,7 +25,7 @@ public:
     static FaithMessage &MsgHostInfo(QString lab, QString hostName, quint32 ip);
     static FaithMessage &MsgOk();
     static FaithMessage &MsgError(QString message);
-    static FaithMessage &MsgSendFile(QString filePatch);
+    static FaithMessage &MsgSendFile(QString filePath);
 };
 
 #endif // FAITHMESSAGE_H

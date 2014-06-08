@@ -16,8 +16,8 @@ public:
     bool readRawData(const QByteArray &);
     QString filename() const;
     QByteArray data() const;
-    bool readFile(QString filePatch);
-    bool saveFile(QString filePatch) const;
+    bool readFile(QString filePath);
+    bool saveFile(QString filePath) const;
 
 };
 

@@ -36,18 +36,18 @@ QByteArray FdFile::data() const
     return _data;
 }
 
-bool FdFile::readFile(QString filePatch)
+bool FdFile::readFile(QString filePath)
 {
-    QFile f(filePatch);
+    QFile f(filePath);
     if (!f.open(QIODevice::ReadOnly)) return false;
     _data = f.readAll();
     _filename = f.fileName().section("/",-1,-1);
     return true;
 }
 
-bool FdFile::saveFile(QString filePatch) const
+bool FdFile::saveFile(QString filePath) const
 {
-    QFile f(filePatch);
+    QFile f(filePath);
     if (!f.open(QIODevice::WriteOnly)) return false;
     f.write(_data);
     return true;

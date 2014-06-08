@@ -6,6 +6,7 @@
 #include "fdstringlist.h"
 #include "fdproposedip.h"
 #include "fdhostinfo.h"
+#include "fdfile.h"
 
 bool FaithMessage::send(QTcpSocket *socket) const
 {
@@ -126,7 +127,20 @@ FaithMessage &FaithMessage::MsgError(QString message)
     return *msg;
 }
 
-FaithMessage &FaithMessage::MsgSendFile(QString filePatch)
+FaithMessage &FaithMessage::MsgSendFile(QString filePath)
 {
-
+    FaithMessage* msg = new FaithMessage();
+    FdFile *file = new FdFile();
+    if (!file->readFile(filePath))
+    {
+        delete file;
+        delete msg;
+        return FaithMessage::MsgError("Can't read file: "+filePath);
+    }
+    else
+    {
+        msg->messageCode = Faithcore::SEND_FILE;
+        msg->data = file;
+        return *msg;
+    }
 }
