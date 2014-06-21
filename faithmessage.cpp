@@ -111,11 +111,11 @@ FaithMessage &FaithMessage::MsgHostInfo(QString lab, QString hostName, quint32 i
     return *msg;
 }
 
-FaithMessage &FaithMessage::MsgAcceptIp(QString lab, QString hostName, quint32 ip)
+FaithMessage &FaithMessage::MsgAcceptIp(QString lab, QString hostName, quint32 ip, QString mac)
 {
     FaithMessage* msg = new FaithMessage();
     msg->messageCode = Faithcore::ACCEPT_IP;
-    msg->data = new FdHostInfo(lab, hostName, ip);
+    msg->data = new FdHostInfo(lab, hostName, ip, mac);
     return *msg;
 }
 

@@ -23,7 +23,7 @@ public:
     static FaithMessage &MsgReserveIp(QString lab);
     static FaithMessage &MsgProposedIp(quint32 ip, QString hostName);
     static FaithMessage &MsgHostInfo(QString lab, QString hostName, quint32 ip);
-    static FaithMessage &MsgAcceptIp(QString lab, QString hostName, quint32 ip);
+    static FaithMessage &MsgAcceptIp(QString lab, QString hostName, quint32 ip, QString mac);
     static FaithMessage &MsgOk();
     static FaithMessage &MsgError(QString message);
     static FaithMessage &MsgSendFile(QString filePath);
