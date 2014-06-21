@@ -22,7 +22,10 @@ public:
         ACCEPT_IP,
         OK,
         ERROR,
-        SEND_FILE
+        SEND_FILE,
+        GET_FILE_LIST,
+        FILE_LIST,
+        GET_FILE
     };
     static quint32 ipFromString(const QString &ip);
     static QString ipFromInt(const quint32 &ip);

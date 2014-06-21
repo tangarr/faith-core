@@ -144,3 +144,27 @@ FaithMessage &FaithMessage::MsgSendFile(QString filePath)
     msg->data = file;
     return *msg;
 }
+
+FaithMessage &FaithMessage::MsgGetFileList()
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::GET_FILE_LIST;
+    msg->data=0;
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgFileList(QStringList fileList)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::FILE_LIST;
+    msg->data=new FdStringList(fileList);
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgGetFile(QString filename)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::FILE_LIST;
+    msg->data=new FdString(filename);
+    return *msg;
+}

@@ -27,6 +27,10 @@ public:
     static FaithMessage &MsgOk();
     static FaithMessage &MsgError(QString message);
     static FaithMessage &MsgSendFile(QString filePath);
+    static FaithMessage &MsgGetFileList();
+    static FaithMessage &MsgFileList(QStringList fileList);
+    static FaithMessage &MsgGetFile(QString filename);
+
 };
 
 #endif // FAITHMESSAGE_H

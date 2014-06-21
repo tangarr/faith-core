@@ -41,6 +41,15 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
     case Faithcore::SEND_FILE:
         val = new FdFile();
         break;
+    case Faithcore::GET_FILE_LIST:
+        val = 0;
+        break;
+    case Faithcore::FILE_LIST:
+        val = new FdStringList();
+        break;
+    case Faithcore::GET_FILE:
+        val = new FdString();
+        break;
     default:    
         val = 0;
         qDebug() << "FaithDataBuilder Error: code " << messageCode << " not implemented";
