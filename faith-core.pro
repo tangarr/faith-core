@@ -28,7 +28,8 @@ HEADERS += faithcore.h \
     fdstringlist.h \
     fdproposedip.h \
     fdhostinfo.h \
-    fdfile.h
+    fdfile.h \
+    faithMacro.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

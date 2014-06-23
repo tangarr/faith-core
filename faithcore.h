@@ -14,6 +14,7 @@ public:
     Faithcore();
     enum MessageCode
     {
+        EMPTY,
         GET_LAB_LIST_OR_HOST_INFO,
         HOST_INFO,
         LAB_LIST,

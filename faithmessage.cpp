@@ -45,14 +45,11 @@ bool FaithMessage::recive(QTcpSocket *socket)
     {
         data = FaithDataBuilder::buildFaithData(messageCode);
         if (!data) return false;
-        //char *buffor = new char[length];
-        //stream.readRawData(buffor, length);
-        //QByteArray compressed(buffor, length);
         QByteArray compressed;
         stream >> compressed;
-        //delete buffor;
         QByteArray raw=qUncompress(compressed);
-        return data->readRawData(raw);
+        bool readen = data->readRawData(raw);
+        return readen;
     }
     else
     {
@@ -164,7 +161,7 @@ FaithMessage &FaithMessage::MsgFileList(QStringList fileList)
 FaithMessage &FaithMessage::MsgGetFile(QString filename)
 {
     FaithMessage* msg = new FaithMessage();
-    msg->messageCode = Faithcore::FILE_LIST;
+    msg->messageCode = Faithcore::GET_FILE;
     msg->data=new FdString(filename);
     return *msg;
 }
