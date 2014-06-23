@@ -35,12 +35,17 @@ bool FaithMessage::send(QTcpSocket *socket) const
 
 bool FaithMessage::recive(QTcpSocket *socket)
 {
+    socket->waitForReadyRead();
     quint16 code;
     int length;
     QDataStream stream(socket);
     stream.setVersion(QDataStream::Qt_5_2);
     stream >> code >> length;
     messageCode = static_cast<Faithcore::MessageCode>(code);
+    if (messageCode==Faithcore::EMPTY)
+    {
+        qWarning() << "ERROR: Recived EMPTY message";
+    }
     if (length>0)
     {
         data = FaithDataBuilder::buildFaithData(messageCode);
