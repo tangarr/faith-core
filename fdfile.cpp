@@ -50,5 +50,7 @@ bool FdFile::saveFile(QString filePath) const
     QFile f(filePath);
     if (!f.open(QIODevice::WriteOnly)) return false;
     f.write(_data);
+    f.waitForBytesWritten(3000);
+    f.close();
     return true;
 }
