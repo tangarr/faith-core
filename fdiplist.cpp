@@ -5,6 +5,11 @@ FdIpList::FdIpList()
 {
 }
 
+FdIpList::FdIpList(QList<quint32> hosts)
+{
+    _list = hosts;
+}
+
 QByteArray &FdIpList::rawDada() const
 {
     QByteArray *raw=new QByteArray();

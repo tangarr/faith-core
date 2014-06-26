@@ -5,6 +5,7 @@
 #include "fdproposedip.h"
 #include "fdhostinfo.h"
 #include "fdfile.h"
+#include "fdiplist.h"
 
 FaithDataBuilder::FaithDataBuilder()
 {
@@ -49,6 +50,9 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
         break;
     case Faithcore::GET_FILE:
         val = new FdString();
+        break;
+    case Faithcore::REQUEST_INSTALL:
+        val = new FdIpList();
         break;
     default:    
         val = 0;

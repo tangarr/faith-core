@@ -7,6 +7,7 @@
 #include "fdproposedip.h"
 #include "fdhostinfo.h"
 #include "fdfile.h"
+#include "fdiplist.h"
 
 bool FaithMessage::send(QTcpSocket *socket) const
 {
@@ -168,5 +169,13 @@ FaithMessage &FaithMessage::MsgGetFile(QString filename)
     FaithMessage* msg = new FaithMessage();
     msg->messageCode = Faithcore::GET_FILE;
     msg->data=new FdString(filename);
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgRequestInstall(QList<quint32> hosts)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::REQUEST_INSTALL;
+    msg->data=new FdIpList(hosts);
     return *msg;
 }

@@ -8,7 +8,7 @@ class FdIpList : public FaithData
     QList<quint32> _list;
 public:
     FdIpList();
-public:
+    FdIpList(QList<quint32> hosts);
     QByteArray &rawDada() const;
     bool readRawData(const QByteArray &);
     int count() const;
