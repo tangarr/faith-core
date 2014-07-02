@@ -31,6 +31,8 @@ public:
     static FaithMessage &MsgFileList(QStringList fileList);
     static FaithMessage &MsgGetFile(QString filename);
     static FaithMessage &MsgRequestInstall(QList<quint32> hosts);
+    static FaithMessage &MsgInstallComplete();
+    static FaithMessage &MsgInstallAborted(QString message);
 
 };
 

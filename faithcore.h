@@ -27,7 +27,9 @@ public:
         GET_FILE_LIST,
         FILE_LIST,
         GET_FILE,
-        REQUEST_INSTALL
+        REQUEST_INSTALL,
+        INSTALL_COMPLETE,
+        INSTALL_ABORTED
     };
     static quint32 ipFromString(const QString &ip);
     static QString ipFromInt(const quint32 &ip);

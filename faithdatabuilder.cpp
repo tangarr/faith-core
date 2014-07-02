@@ -54,6 +54,11 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
     case Faithcore::REQUEST_INSTALL:
         val = new FdIpList();
         break;
+    case Faithcore::INSTALL_COMPLETE:
+        val = 0;
+        break;
+    case Faithcore::INSTALL_ABORTED:
+        val = new FdString();
     default:    
         val = 0;
         qDebug() << "FaithDataBuilder Error: code " << messageCode << " not implemented";

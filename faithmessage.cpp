@@ -179,3 +179,19 @@ FaithMessage &FaithMessage::MsgRequestInstall(QList<quint32> hosts)
     msg->data=new FdIpList(hosts);
     return *msg;
 }
+
+FaithMessage &FaithMessage::MsgInstallComplete()
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::INSTALL_COMPLETE;
+    msg->data=0;
+    return *msg;
+}
+
+FaithMessage &FaithMessage::MsgInstallAborted(QString message)
+{
+    FaithMessage* msg = new FaithMessage();
+    msg->messageCode = Faithcore::INSTALL_ABORTED;
+    msg->data=new FdString(message);
+    return *msg;
+}
