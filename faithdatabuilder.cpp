@@ -59,6 +59,7 @@ FaithData* FaithDataBuilder::buildFaithData(Faithcore::MessageCode messageCode)
         break;
     case Faithcore::INSTALL_ABORTED:
         val = new FdString();
+        break;
     default:    
         val = 0;
         qDebug() << "FaithDataBuilder Error: code " << messageCode << " not implemented";
